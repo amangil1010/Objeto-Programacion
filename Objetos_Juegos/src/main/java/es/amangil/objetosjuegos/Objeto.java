@@ -50,11 +50,11 @@ public class Objeto {
         this.Calidad = Calidad;
     }
     //
-    public int getnumPaginas() {
+    public int getnumUnidades() {
         return numUnidades;
     }
     
-    public void setnumPaginas(int numPaginas) {
+    public void setnumUnidades(int numPaginas) {
         this.numUnidades = numPaginas;
     }
     //
