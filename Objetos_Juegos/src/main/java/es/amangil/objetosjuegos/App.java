@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -21,17 +22,28 @@ import javafx.stage.Stage;
 public class App extends Application {
     ////Variables
     int cambio = 0;
-    int libroActual = 0;
-        Objetos listaObjetos = new Objetos();
+    int objetoActual = 0;
+    
+    Objetos listaObjetos = new Objetos();
+    
     Label label = new Label();
         Label labe2 = new Label();
         Label labe3 = new Label();
         Label labe4 = new Label();
         Label labe5 = new Label();
         Label labe6 = new Label();
+        
     @Override
     public void start(Stage stage) {
+            
         StackPane root = new StackPane();
+        //-----
+        
+        
+        
+        
+        
+        //-----
         var scene = new Scene(root, 640, 480);
         stage.setScene(scene);
         stage.show();
@@ -74,14 +86,24 @@ public class App extends Application {
         //}
         
         Button buttonSelecFile = new Button("Guardar XML");
+        buttonSelecFile.setStyle("-fx-background-color: #ADD8E6;");
+        buttonSelecFile.setMinHeight(40);
+        buttonSelecFile.setMinWidth(100);
+        buttonSelecFile.setMaxHeight(40);
+        buttonSelecFile.setMaxWidth(100);
         root.getChildren().add(buttonSelecFile);
         buttonSelecFile.setOnAction((t) -> {
             UtilXML.guardarDatosXML(stage, listaObjetos);
         }); 
         
-        listaObjetos.getListaObjeto().get(libroActual);
+        listaObjetos.getListaObjeto().get(objetoActual);
 
         Button buttonImportFile = new Button("Import XML");
+        buttonImportFile.setStyle("-fx-background-color: #ADD8E6;");
+        buttonImportFile.setMinHeight(40);
+        buttonImportFile.setMinWidth(100);
+        buttonImportFile.setMaxHeight(40);
+        buttonImportFile.setMaxWidth(100);
         root.getChildren().add(buttonImportFile);
         buttonImportFile.setOnAction((t) -> {
             Objetos librosImport = UtilXML.ImportDatosXML(stage);
@@ -91,100 +113,97 @@ public class App extends Application {
             listaObjetos.fusionarLibros(librosImport);
         });
         
-//        Label label = new Label();
-//        Label labe2 = new Label();
-//        Label labe3 = new Label();
-//        Label labe4 = new Label();
-//        Label labe5 = new Label();
-//        Label labe6 = new Label();
-        
         TextArea textArea = new TextArea();
 
         
         Button buttonSiguiente = new Button("Siguiente");
+        buttonSiguiente.setStyle("-fx-background-color: #ADD8E6;");
+        buttonSiguiente.setMinHeight(40);
+        buttonSiguiente.setMinWidth(100);
+        buttonSiguiente.setMaxHeight(40);
+        buttonSiguiente.setMaxWidth(100);
         buttonSiguiente.setOnAction((t) -> {
-            libroActual++;
-            label.setText("Nombre:" + listaObjetos.getListaObjeto().get(libroActual).getNombre());
-            labe2.setText("Propietario: " + listaObjetos.getListaObjeto().get(libroActual).getPropietario());
-            labe3.setText("Calidad: " + listaObjetos.getListaObjeto().get(libroActual).getCalidad());
-            labe4.setText("Num Unidades: " + listaObjetos.getListaObjeto().get(libroActual).getnumUnidades());
-            labe5.setText("Precio: " + listaObjetos.getListaObjeto().get(libroActual).getPrecio());
-            labe6.setText("Fecha: " + listaObjetos.getListaObjeto().get(libroActual).getfecha());
+            objetoActual++;
+            label.setText("Nombre: " + listaObjetos.getListaObjeto().get(objetoActual).getNombre());
+//            label.setUnderline(true);
+            labe2.setText("Propietario: " + listaObjetos.getListaObjeto().get(objetoActual).getPropietario());
+            labe3.setText("Calidad: " + listaObjetos.getListaObjeto().get(objetoActual).getCalidad());
+            labe4.setText("Num Unidades: " + listaObjetos.getListaObjeto().get(objetoActual).getnumUnidades());
+            labe5.setText("Precio: " + listaObjetos.getListaObjeto().get(objetoActual).getPrecio());
+            labe6.setText("Fecha: " + listaObjetos.getListaObjeto().get(objetoActual).getfecha());
             
         });
+        
+        
         Button buttonAnterior = new Button("Anterior");
+        buttonAnterior.setStyle("-fx-background-color: #ADD8E6;");
+        buttonAnterior.setMinHeight(40);
+        buttonAnterior.setMinWidth(100);
+        buttonAnterior.setMaxHeight(40);
+        buttonAnterior.setMaxWidth(100);
         buttonAnterior.setOnAction((t) -> {
-            libroActual--;
-            label.setText("Nombre:" + listaObjetos.getListaObjeto().get(libroActual).getNombre());
-            labe2.setText("Propietario: " + listaObjetos.getListaObjeto().get(libroActual).getPropietario());
-            labe3.setText("Calidad: " + listaObjetos.getListaObjeto().get(libroActual).getCalidad());
-            labe4.setText("Num Unidades: " + listaObjetos.getListaObjeto().get(libroActual).getnumUnidades());
-            labe5.setText("Precio: " + listaObjetos.getListaObjeto().get(libroActual).getPrecio());
-            labe6.setText("Fecha: " + listaObjetos.getListaObjeto().get(libroActual).getfecha());
+            objetoActual--;
+            label.setText("Nombre: " + listaObjetos.getListaObjeto().get(objetoActual).getNombre());
+            labe2.setText("Propietario: " + listaObjetos.getListaObjeto().get(objetoActual).getPropietario());
+            labe3.setText("Calidad: " + listaObjetos.getListaObjeto().get(objetoActual).getCalidad());
+            labe4.setText("Num Unidades: " + listaObjetos.getListaObjeto().get(objetoActual).getnumUnidades());
+            labe5.setText("Precio: " + listaObjetos.getListaObjeto().get(objetoActual).getPrecio());
+            labe6.setText("Fecha: " + listaObjetos.getListaObjeto().get(objetoActual).getfecha());
         });
 
-        label.setText("Nombre:" + listaObjetos.getListaObjeto().get(libroActual).getNombre());
-            labe2.setText("Propietario: " + listaObjetos.getListaObjeto().get(libroActual).getPropietario());
-            labe3.setText("Calidad: " + listaObjetos.getListaObjeto().get(libroActual).getCalidad());
-            labe4.setText("Num Unidades: " + listaObjetos.getListaObjeto().get(libroActual).getnumUnidades());
-            labe5.setText("Precio: " + listaObjetos.getListaObjeto().get(libroActual).getPrecio());
-            labe6.setText("Fecha: " + listaObjetos.getListaObjeto().get(libroActual).getfecha());
+        label.setText("Nombre: " + listaObjetos.getListaObjeto().get(objetoActual).getNombre());
+        labe2.setText("Propietario: " + listaObjetos.getListaObjeto().get(objetoActual).getPropietario());
+        labe3.setText("Calidad: " + listaObjetos.getListaObjeto().get(objetoActual).getCalidad());
+        labe4.setText("Num Unidades: " + listaObjetos.getListaObjeto().get(objetoActual).getnumUnidades());
+        labe5.setText("Precio: " + listaObjetos.getListaObjeto().get(objetoActual).getPrecio());
+        labe6.setText("Fecha: " + listaObjetos.getListaObjeto().get(objetoActual).getfecha());
         
+        //----------------------------------------------------------------------
+        VBox  VBox = new VBox();
+        VBox.setAlignment(Pos.CENTER);
+        VBox.setSpacing(20);
+        VBox.setBorder(new Border(new BorderStroke(Color.valueOf("#ADD8E6"),
+            BorderStrokeStyle.SOLID,
+            CornerRadii.EMPTY,
+            new BorderWidths(10))));
+        root.getChildren().add(VBox);
         
-        
-        
-        
-        VBox  paneScores = new VBox();
-        paneScores.setAlignment(Pos.CENTER);
+        HBox  paneScores = new HBox();
+        paneScores.setAlignment(Pos.TOP_CENTER);
         paneScores.getChildren().add(buttonSelecFile);        
         paneScores.getChildren().add(buttonImportFile);
-        paneScores.setSpacing(20);
-        root.getChildren().add(paneScores);
-//        textArea.setText(listaObjetos.getListaObjeto().get(cambio));
-////        textArea.setBorder(new Border(new BorderStroke(Color.valueOf("#000000"),
-//        BorderStrokeStyle.DASHED,
-//        CornerRadii.EMPTY,
-//        BorderWidths.DEFAULT)));
-//        
-
-        label.setBorder(new Border(new BorderStroke(Color.valueOf("#000000"),
+        paneScores.setSpacing(100);
+        VBox.getChildren().add(paneScores);
+        
+        VBox  VBox2 = new VBox();
+        VBox2.setMinHeight(300);
+        VBox2.setMinWidth(200);
+        VBox2.setMaxHeight(300);
+        VBox2.setMaxWidth(200);
+        VBox2.setAlignment(Pos.CENTER);
+        VBox2.setSpacing(20);
+        VBox2.setBorder(new Border(new BorderStroke(Color.valueOf("#ADD8E6"),
             BorderStrokeStyle.DASHED,
             CornerRadii.EMPTY,
-            BorderWidths.DEFAULT)));
-        labe2.setBorder(new Border(new BorderStroke(Color.valueOf("#000000"),
-            BorderStrokeStyle.DASHED,
-            CornerRadii.EMPTY,
-            BorderWidths.DEFAULT)));
-        labe3.setBorder(new Border(new BorderStroke(Color.valueOf("#000000"),
-            BorderStrokeStyle.DASHED,
-            CornerRadii.EMPTY,
-            BorderWidths.DEFAULT)));
-        labe4.setBorder(new Border(new BorderStroke(Color.valueOf("#000000"),
-            BorderStrokeStyle.DASHED,
-            CornerRadii.EMPTY,
-            BorderWidths.DEFAULT)));
-        labe5.setBorder(new Border(new BorderStroke(Color.valueOf("#000000"),
-            BorderStrokeStyle.DASHED,
-            CornerRadii.EMPTY,
-            BorderWidths.DEFAULT)));
-        labe6.setBorder(new Border(new BorderStroke(Color.valueOf("#000000"),
-            BorderStrokeStyle.DASHED,
-            CornerRadii.EMPTY,
-            BorderWidths.DEFAULT)));
-
-
-//            textArea.setBackground(Background.BLACK);
-
-        paneScores.getChildren().add(label);
-        paneScores.getChildren().add(labe2);
-        paneScores.getChildren().add(labe3);
-        paneScores.getChildren().add(labe4);
-        paneScores.getChildren().add(labe5);
-        paneScores.getChildren().add(labe6);
-        paneScores.getChildren().add(buttonSiguiente);
-        paneScores.getChildren().add(buttonAnterior);
+            new BorderWidths(5))));
+        VBox2.getChildren().add(label);
+        VBox2.getChildren().add(labe2); 
+        VBox2.getChildren().add(labe3); 
+        VBox2.getChildren().add(labe4);
+        VBox2.getChildren().add(labe5);
+        VBox2.getChildren().add(labe6); 
+        VBox.getChildren().add(VBox2);
+        
+        HBox  paneHBox = new HBox();
+        paneHBox.setSpacing(100);
+        paneHBox.setAlignment(Pos.BOTTOM_CENTER);
+        paneHBox.getChildren().add(buttonAnterior);
+        paneHBox.getChildren().add(buttonSiguiente);
+        VBox.getChildren().add(paneHBox);
+        //-------------------------------------------
         
     }
+        
 
     public static void main(String[] args) {
         launch();
