@@ -18,7 +18,6 @@ public class UtilXML {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Guardar XML en");
             File fileListaLibros = fileChooser.showSaveDialog(stage);
-
             //File fileListaLibros = new File("ListaLibros.xml");
             contexto = JAXBContext.newInstance(Objetos.class);
             Marshaller marshaller = contexto.createMarshaller();
