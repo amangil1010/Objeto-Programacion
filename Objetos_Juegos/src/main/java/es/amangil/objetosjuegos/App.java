@@ -123,7 +123,7 @@ public class App extends Application {
             labe4.setText("Num Unidades: " + listaObjetos.getListaObjeto().get(objetoActual).getnumUnidades());
             labe5.setText("Precio: " + listaObjetos.getListaObjeto().get(objetoActual).getPrecio());
             labe6.setText("Fecha: " + listaObjetos.getListaObjeto().get(objetoActual).getfecha());
-        } catch (Exception ex) {
+        } catch (Exception ex) {//Cuando llegue al final o al principio
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Error, no existen mas XML para mostrar");
             alert.setContentText("Error, no existen mas XML para mostrar, a donde desea ir: ");
@@ -172,7 +172,7 @@ public class App extends Application {
             labe4.setText("Num Unidades: " + listaObjetos.getListaObjeto().get(objetoActual).getnumUnidades());
             labe5.setText("Precio: " + listaObjetos.getListaObjeto().get(objetoActual).getPrecio());
             labe6.setText("Fecha: " + listaObjetos.getListaObjeto().get(objetoActual).getfecha());
-        } catch (Exception ex) {
+        } catch (Exception ex) {//Cuando llegue al final o al pirncipio
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Error, no existen mas XML para mostrar");
             alert.setContentText("Error, no existen mas XML para mostrar, a donde desea ir: ");
