@@ -27,18 +27,15 @@ public class App extends Application {
     ////Variables
     int cambio = 0;
     int objetoActual = 0;
-    
+    //Lista
     Objetos listaObjetos = new Objetos();
-    
+    //Label
     Label label = new Label();
     Label labe2 = new Label();
     Label labe3 = new Label();
     Label labe4 = new Label();
     Label labe5 = new Label();
     Label labe6 = new Label();
-    
-//    Image icono = new Image(getClass().getResourceAsStream("/images/xml.png"));
-//    ImageView iconoView = new ImageView(icono);
         
     @Override
     public void start(Stage stage) {
@@ -46,7 +43,6 @@ public class App extends Application {
         StackPane root = new StackPane();
         var scene = new Scene(root, 640, 480);
         stage.setTitle("XML Objetos");
-//        stage.getIcons().add(icono);
         stage.setScene(scene);
         stage.show();
         root.setStyle("-fx-background-color: #ffffff;");
@@ -78,14 +74,12 @@ public class App extends Application {
         objeto3.setPrecio(10);
         objeto3.setfecha("2021/02/12");
         //--------------------------------------------
-        
+        //Agregar a la lista
         listaObjetos.getListaObjeto().add(objeto1);
         listaObjetos.getListaObjeto().add(objeto2);
-        listaObjetos.getListaObjeto().add(objeto3);
-        
-////////////        System.out.println(listaObjetos.getListaObjeto().get(0));
-        
+        listaObjetos.getListaObjeto().add(objeto3);        
         //------------------------------------------------------------
+        //Boton para guardar
         Button buttonSelecFile = new Button("Guardar XML");
         buttonSelecFile.setStyle("-fx-background-color: #ADD8E6;");
         buttonSelecFile.setMinHeight(40);
@@ -96,9 +90,8 @@ public class App extends Application {
         buttonSelecFile.setOnAction((t) -> {
         UtilXML.guardarDatosXML(stage, listaObjetos);
         }); 
-        
-//////////        listaObjetos.getListaObjeto().get(objetoActual);
         //-------------------------------------------------------------
+        //Boton para Importar
         Button buttonImportFile = new Button("Import XML");
         buttonImportFile.setStyle("-fx-background-color: #ADD8E6;");
         buttonImportFile.setMinHeight(40);
@@ -112,8 +105,8 @@ public class App extends Application {
             System.out.println(librosImport.getListaObjeto().size());
             listaObjetos.fusionarLibros(librosImport);
         });
-        
         //-------------------------------------------------------------
+        //Boton para pasar al siguiente libro
         Button buttonSiguiente = new Button("Siguiente");
         buttonSiguiente.setStyle("-fx-background-color: #ADD8E6;");
         buttonSiguiente.setMinHeight(40);
@@ -163,6 +156,7 @@ public class App extends Application {
         }
         });
         //------------------------------------------------------------
+        //Boton para pasar al Anterior
         Button buttonAnterior = new Button("Anterior");
         buttonAnterior.setStyle("-fx-background-color: #ADD8E6;");
         buttonAnterior.setMinHeight(40);
@@ -219,6 +213,7 @@ public class App extends Application {
         labe6.setText("Fecha: " + listaObjetos.getListaObjeto().get(objetoActual).getfecha());
         
         //----------------------------------------------------------------------
+        //VBOX 1º 
         VBox vboxPrincipal = new VBox();
         vboxPrincipal.setAlignment(Pos.CENTER);
         vboxPrincipal.setSpacing(20);
@@ -228,6 +223,7 @@ public class App extends Application {
             new BorderWidths(10))));
         root.getChildren().add(vboxPrincipal);
         //------------------------------------------------------------------------
+        //HBOX 2º
         HBox  botonesSuperiores = new HBox();
         botonesSuperiores.setAlignment(Pos.TOP_CENTER);
         botonesSuperiores.getChildren().add(buttonSelecFile);        
@@ -235,6 +231,7 @@ public class App extends Application {
         botonesSuperiores.setSpacing(100);
         vboxPrincipal.getChildren().add(botonesSuperiores);
         //----------------------------------------------------------------------
+        //VBOX 3º
         VBox  vboxLabel = new VBox();
         vboxLabel.setMinHeight(300);
         vboxLabel.setMinWidth(200);
@@ -254,6 +251,7 @@ public class App extends Application {
         vboxLabel.getChildren().add(labe6); 
         vboxPrincipal.getChildren().add(vboxLabel);
         //--------------------------------------------
+        // HBOX 4º
         HBox  botonesInferiores = new HBox();
         botonesInferiores.setSpacing(100);
         botonesInferiores.setAlignment(Pos.BOTTOM_CENTER);

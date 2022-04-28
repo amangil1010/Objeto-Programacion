@@ -21,24 +21,21 @@ public class Objetos {
         this.listaObjeto = listaObjeto;
     }
     
-        public void fusionarLibros(Objetos librosNuevos){
-        // this.getListaLibros() <- librosNuevos.getlistaLibros();
-////        this.getListaLibros().add(librosNuevos);
-////        this.getListaLibros().addAll(librosNuevos);
-        this.getListaObjeto().addAll(listaObjeto);
-        
+    //Agregar libros
+    public void fusionarLibros(Objetos librosNuevos){
+    this.getListaObjeto().addAll(listaObjeto);
     }
         
-        public void noHayLibros(){
-            if (listaObjeto.size() == 0){
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Aviso");
-                alert.setContentText("Error no existen Objetos que mostrar, debes importar un XML");
-                ButtonType buttonTypeok = new ButtonType("OK");
-                alert.getButtonTypes().setAll(buttonTypeok);
-                Optional<ButtonType> result = alert.showAndWait();
-            }
+    public void noHayLibros(){
+        if (listaObjeto.size() == 0){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Aviso");
+            alert.setContentText("Error no existen Objetos que mostrar, debes importar un XML");
+            ButtonType buttonTypeok = new ButtonType("OK");
+            alert.getButtonTypes().setAll(buttonTypeok);
+            Optional<ButtonType> result = alert.showAndWait();
         }
+    }
     
 
 }

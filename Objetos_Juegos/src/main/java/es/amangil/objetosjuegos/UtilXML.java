@@ -12,6 +12,7 @@ import javax.xml.bind.Unmarshaller;
 
 public class UtilXML {
     
+    //Esto sirve para guardar los datos XML
     public static void guardarDatosXML(Stage stage, Objetos listaobjetos) {
         JAXBContext contexto;
         try {
@@ -30,6 +31,7 @@ public class UtilXML {
         }            
     }
     
+    //Exportar Datos XMl
     public static Objetos ImportDatosXML(Stage stage) {
            try {
             
