@@ -78,9 +78,11 @@ public class App extends Application {
         objeto3.setPrecio(10);
         objeto3.setfecha("2021/02/12");
         //--------------------------------------------
+        
         listaObjetos.getListaObjeto().add(objeto1);
         listaObjetos.getListaObjeto().add(objeto2);
         listaObjetos.getListaObjeto().add(objeto3);
+        
 ////////////        System.out.println(listaObjetos.getListaObjeto().get(0));
         
         //------------------------------------------------------------
